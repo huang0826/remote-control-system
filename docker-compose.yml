@@ -1,0 +1,87 @@
+# 远程手机控制系统 Docker 配置
+# 请使用 Docker Desktop 图形界面操作，不要在命令行运行
+
+name: remote-control-system
+version: '3.8'
+
+services:
+  # MySQL 数据库服务
+  mysql:
+    image: mysql:8.0
+    container_name: remote_control_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Huang266134
+      MYSQL_DATABASE: remote_control_db
+      MYSQL_USER: remote_user
+      MYSQL_PASSWORD: Huang266134
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    networks:
+      - remote_control_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  # Node.js 应用服务
+  app:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: remote_control_app
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_NAME=remote_control_db
+      - DB_USER=remote_user
+      - DB_PASSWORD=Huang266134
+      - JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+      - PORT=3000
+      - UPLOAD_PATH=./uploads
+      - MAX_FILE_SIZE=10485760
+    volumes:
+      - app_uploads:/app/uploads
+      - app_logs:/app/logs
+    networks:
+      - remote_control_network
+    depends_on:
+      mysql:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # 管理面板服务（可选）
+  adminer:
+    image: adminer:latest
+    container_name: remote_control_adminer
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - remote_control_network
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data:
+    driver: local
+  app_uploads:
+    driver: local
+  app_logs:
+    driver: local
+
+networks:
+  remote_control_network:
+    driver: bridge

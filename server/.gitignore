@@ -1,0 +1,267 @@
+# 依赖目录
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 运行时数据
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# 覆盖率目录
+lib-cov
+coverage/
+.nyc_output
+
+# Grunt中间和输出目录
+.grunt
+
+# Bower依赖目录
+bower_components
+
+# node-waf配置
+.lock-wscript
+
+# 编译的二进制插件
+build/Release
+
+# 依赖目录
+node_modules/
+jspm_packages/
+
+# TypeScript v1声明文件
+typings/
+
+# 可选的npm缓存目录
+.npm
+
+# 可选的eslint缓存
+.eslintcache
+
+# 微束缓存
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# 可选的REPL历史
+.node_repl_history
+
+# 输出的npm包
+*.tgz
+
+# Yarn完整性文件
+.yarn-integrity
+
+# dotenv环境变量文件
+.env
+.env.test
+.env.local
+.env.production
+
+# parcel-bundler缓存
+.cache
+.parcel-cache
+
+# Next.js构建输出
+.next
+
+# Nuxt.js构建/生成输出
+.nuxt
+dist
+
+# Gatsby文件
+.cache/
+public
+
+# Storybook构建输出
+.out
+.storybook-out
+
+# 临时文件夹
+tmp/
+temp/
+
+# 运行时数据
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# 日志文件
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# 上传文件
+uploads/
+!uploads/.gitkeep
+
+# 备份文件
+backups/
+!backups/.gitkeep
+
+# 缓存文件
+.cache/
+
+# 数据库文件
+*.sqlite
+*.sqlite3
+*.db
+
+# 配置文件
+config/local.js
+config/local.json
+
+# SSL证书
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+certs/
+
+# IDE和编辑器文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统生成的文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 测试覆盖率
+coverage/
+.nyc_output/
+
+# Jest
+.jest/
+
+# ESLint缓存
+.eslintcache
+
+# Prettier缓存
+.prettiercache
+
+# Stylelint缓存
+.stylelintcache
+
+# 构建输出
+build/
+dist/
+out/
+
+# 文档生成
+docs/
+
+# PM2
+.pm2/
+
+# Docker
+.dockerignore
+
+# Kubernetes
+*.yaml
+*.yml
+!docker-compose.yml
+!.github/workflows/*.yml
+
+# 监控和日志
+monitoring/
+metrics/
+
+# 第三方库
+vendor/
+
+# 临时文件
+*.tmp
+*.temp
+
+# 压缩文件
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# 媒体文件
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.flv
+*.webm
+*.mp3
+*.wav
+*.flac
+*.aac
+
+# 图片文件（如果不需要版本控制）
+# *.jpg
+# *.jpeg
+# *.png
+# *.gif
+# *.bmp
+# *.svg
+
+# 文档文件
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.ppt
+*.pptx
+
+# 开发工具
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
+
+# 本地配置
+local.config.js
+local.config.json
+
+# 性能测试
+benchmark/
+performance/
+
+# 安全文件
+secrets/
+keys/
+tokens/
+
+# 数据文件
+data/
+*.csv
+*.json
+*.xml
+
+# 锁文件（根据需要）
+# package-lock.json
+# yarn.lock
+
+# 其他
+.env.*
+!.env.example
+.DS_Store
+node_modules
+/dist
+/build
+
+# 本地环境变量文件
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
